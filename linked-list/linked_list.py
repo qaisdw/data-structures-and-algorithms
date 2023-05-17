@@ -114,6 +114,51 @@ class Linkedlist:
             return
         prev_node.next_node = current_node.next_node
 
+    def linkLength(self):
+        length = 0
+        current_node = self.head
+        while current_node:
+            length += 1
+            current_node = current_node.next_node
+        return length
+    
+    def kthFromEnd(self, k):
+        length = self.linkLength()
+
+        if self.head is None:
+            print("Linked list is empty!")
+            return
+
+        if k < 0:
+            k = length + k
+
+        if k < 0 or k > length:
+            return "Exception"
+
+        current_node = self.head
+        for _ in range(length - k - 1):
+            current_node = current_node.next_node
+        return current_node.value
+    
+    def kthFormEndIndex(self, k):
+        current_node = self.head
+        index = 0
+        while current_node:
+            if current_node.value == k:
+                return index
+            current_node = current_node.next_node
+            index += 1
+        return -1
+
+
+
+
+        
+        
+
+
+
+
 
 
 if __name__ == "__main__":
@@ -129,10 +174,16 @@ if __name__ == "__main__":
     app.addAfter(3, 5)
     app.delete(5)
 
+
     current_node = app.head
     while current_node:
         print(current_node.value)
         current_node = current_node.next_node
 
+    print("last node",app.kthFromEnd(4))
+    print(app.linkLength())
+    print("middle node", app.kthFormEndIndex(1))
+
+    print()
     print("Initial List:")
     print(app.to_string())

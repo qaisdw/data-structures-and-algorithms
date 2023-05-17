@@ -25,3 +25,10 @@ The challenge is to implement a Linked List class with multiple methods:
 pytest 
 python3 linked_list.py
 ```
+## Resources:-
+1. [Delete a node in the LinkList](https://www.youtube.com/watch?v=wjW6Zhf-bqw)
+2. [Inserting/Adding Elements At The End Of The Linked List (append) ](https://www.youtube.com/watch?v=o8tWJCFWEPU)
+3. [Inserting/Adding Elements After The Given Node in The Linked List](https://www.youtube.com/watch?v=enRNwavYa9U)
+4. [Inserting/Adding Elements Before The Given Node in The Linked List](https://www.youtube.com/watch?v=8-liQuPp34A)
+5. [Find Kth or Nth from the tail Linked List](https://www.techiedelight.com/find-kth-node-from-the-end-linked-list/)
+
