@@ -17,6 +17,8 @@ The challenge is to implement a Linked List class with multiple methods:
 
 ## Whiteboard Process
 ![WB5](./WB5.png)
+![WB5](./WB6.png)
+
 
 
 ## Solution
