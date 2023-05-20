@@ -130,10 +130,10 @@ class Linkedlist:
             return
 
         if k < 0:
-            k = length + k
+            raise IndexError ("Enter positive index only")
 
-        if k < 0 or k > length:
-            return "Exception"
+        if k > length:
+            raise IndexError ("index out of the range")
 
         current_node = self.head
         for _ in range(length - k - 1):

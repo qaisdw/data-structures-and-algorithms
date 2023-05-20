@@ -9,14 +9,19 @@ The challenge is to implement a Linked List class with multiple methods:
 4. append(value): Adds a new node with the given value to the end of the list.
 5. addBefore(value, target_node): Adds a new node with the given value before the node with the target value.
 6. addAfter(value, target_node): Adds a new node with the given value after the node with the target value.
+7. kthFromEnd(kth): return specific node value using the index(kth) while start from the tail.
 ***Stretch Goal***
-7. delete(value): delete a specific node with the given value. 
+8. delete(value): delete a specific node with the given value. 
+9. kthFormEndIndex(value): find the index of specific node in the linklist to check if its in the middle or not
 
 
 
 
 ## Whiteboard Process
 ![WB5](./WB5.png)
+
+![WB7](./WB7.png)
+
 
 
 ## Solution

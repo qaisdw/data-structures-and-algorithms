@@ -1,3 +1,4 @@
+import pytest
 from linked_list import Linkedlist
 
 
@@ -45,13 +46,15 @@ def test_linked_list():
     assert ll.to_string() == "head -> { 3 } -> { 2 } -> { 6 } -> { 5 } -> { 1 } -> { 4 } -> NULL"
 
     # Test if k is greater than the length of the linked list
-    assert ll.kthFromEnd(7) == "Exception"
+    with pytest.raises(IndexError):
+        ll.kthFromEnd(7) == "index out of the range"
 
     # Test if k and the length of the list are the same
     assert ll.linkLength() == ll.kthFromEnd(3)
 
     # Test when k is not a positive integer
-    assert ll.kthFromEnd(-2) == 2
+    with pytest.raises(IndexError):
+        ll.kthFromEnd(-2) == "Enter positive index only"
 
     # “Happy Path” where k is not at the end, but somewhere in the middle of the linked list
     ll.insert(9)
