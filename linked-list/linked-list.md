@@ -10,7 +10,7 @@ The challenge is to implement a Linked List class with multiple methods:
 5. addBefore(value, target_node): Adds a new node with the given value before the node with the target value.
 6. addAfter(value, target_node): Adds a new node with the given value after the node with the target value.
 7. kthFromEnd(kth): return specific node value using the index(kth) while start from the tail.
-***Stretch Goal***
+### ***Stretch Goal***
 8. delete(value): delete a specific node with the given value. 
 9. kthFormEndIndex(value): find the index of specific node in the linklist to check if its in the middle or not
 
@@ -18,10 +18,12 @@ The challenge is to implement a Linked List class with multiple methods:
 
 
 ## Whiteboard Process
+
+- Singly Linked Lists
 ![WB5](./WB5.png)
+- Extend a Linked List to allow various insertion methods.
 ![WB5](./WB6.png)
-
-
+- k-th value from the end of a linked list.
 ![WB7](./WB7.png)
 
 
