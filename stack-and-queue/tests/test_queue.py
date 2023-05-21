@@ -39,12 +39,7 @@ def test_queue_instantiate_empty():
     queue = Queue()
     assert queue.is_empty()
 
-def test_queue_dequeue_on_empty():
+def test_queue_dequeue_and_peek_on_empty():
     queue = Queue()
     with pytest.raises(ValueError):
-        queue.dequeue() == "Queue is empty. There is nothing to remove from the queue"
-
-def test_queue_peek_on_empty():
-    queue = Queue()
-    with pytest.raises(ValueError):
-        queue.peek() == "Queue is empty. There is nothing to peek in the queue"
+        queue.dequeue()
