@@ -29,7 +29,7 @@ class Stack:
             self.top = node
         else:
             node.next_node = self.top
-            self.top = node
+        self.top = node
 
     def pop(self):
         """
@@ -44,9 +44,11 @@ class Stack:
         if self.is_empty():
             raise ValueError("Stack is empty. There is nothing to pop from the stack.")
 
-        value = self.top.value
-        self.top = self.top.next_node
-        return value
+        temp = self.top
+        self.top = temp.next_node
+        temp.next_node = None
+
+        return temp.value
 
     def peek(self):
         """
@@ -100,6 +102,6 @@ if __name__ == "__main__":
     print(s)
     print(s.is_empty())
     s.pop()
-    s.pop()
+    print("deleted value =",s.pop())
     print(s.is_empty())
     print(s)

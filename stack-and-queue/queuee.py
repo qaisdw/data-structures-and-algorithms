@@ -47,8 +47,7 @@ class Queue:
 
         temp = self.front
         self.front = temp.next_node
-        if self.front is None:
-            self.back = None
+        temp.next_node = None
 
         return temp.value
 
@@ -102,5 +101,5 @@ if __name__ == "__main__":
     q.dequeue()
     q.dequeue()
     q.dequeue()
-    q.dequeue()
+    print("deleted value = " ,q.dequeue())
     print(q)

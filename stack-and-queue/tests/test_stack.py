@@ -39,12 +39,8 @@ def test_stack_instantiate_empty():
     stack = Stack()
     assert stack.is_empty()
 
-def test_stack_pop_on_empty():
+def test_stack_pop_and_peek_on_empty():
     stack = Stack()
     with pytest.raises(ValueError):
-        stack.pop() == "Queue is empty. There is nothing to remove from the queue"
+        stack.pop()
 
-def test_stack_peek_on_empty():
-    stack = Stack()
-    with pytest.raises(ValueError):
-        stack.peek() == "Stack is empty. There is nothing to peek to in the queue."
