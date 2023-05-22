@@ -149,6 +149,52 @@ class Linkedlist:
             current_node = current_node.next_node
             index += 1
         return -1
+    
+    @staticmethod
+    def zip_LL(list1, list2):
+        if not list1:
+            return list2
+        if not list2:
+            return list1
+        
+        length1 = 0
+        length2 = 0
+        
+        current_node = list1
+        while current_node:
+            length1 += 1
+            current_node = current_node.next_node
+
+        current_node = list2
+        while current_node:
+            length2 += 1
+            current_node = current_node.next_node
+
+        if length1 > length2:
+            longer_list = list1
+            shorter_list = list2
+        else:
+            longer_list = list2
+            shorter_list = list1
+        
+        head = list1
+        while longer_list and shorter_list:
+            next1 = list1.next_node
+            next2 = list2.next_node
+
+            list2.next_node = next1
+            list1.next_node = list2
+
+            list1 = next1
+            list2 = next2
+
+        if list2:
+            list1.next_node = list2
+
+        return Linkedlist(head)
+
+
+
 
 
 
@@ -187,3 +233,29 @@ if __name__ == "__main__":
     print()
     print("Initial List:")
     print(app.to_string())
+
+    n = Node(1)
+    app1 = Linkedlist(n)
+    app1.append(3)
+    app1.append(2)
+
+ 
+
+    
+    n2 = Node(5)
+    app2 = Linkedlist(n2)
+    app2.append(9)
+    # app2.append(7)
+    # app2.append(8)
+    # app2.append(9)
+    # app2.append(10)
+
+    zipll = Linkedlist.zip_LL(app1.head, app2.head)
+
+    current_node = zipll.head
+    while current_node:
+        print(current_node.value)
+        current_node = current_node.next_node
+
+    print(zipll.to_string())
+
