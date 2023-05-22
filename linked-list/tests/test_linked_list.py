@@ -69,3 +69,19 @@ def test_linked_list():
     ll.delete(1)
     assert ll.linkLength() == 1
 
+def test_zip_link_list():
+    ll1 = Linkedlist()
+    ll2 = Linkedlist()
+
+    ll1.insert(1)
+    ll1.append(3)
+    ll1.append(2)
+
+    ll2.insert(5)
+    ll2.append(9)
+
+    zipll = Linkedlist.zip_LL(ll1.head, ll2.head)
+
+    assert zipll.to_string() == 'head -> { 1 } -> { 5 } -> { 3 } -> { 9 } -> { 2 } -> NULL'
+
+
