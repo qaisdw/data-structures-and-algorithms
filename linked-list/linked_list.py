@@ -1,25 +1,56 @@
 class Node:
     def __init__(self, value, next_node=None):
+        """
+        Initialize a Node object.
+
+        Args:
+            value: The value of the node.
+            next_node: Reference to the next node in the linked list (default is None).
+        """
         self.value = value
         self.next_node = next_node
 
 
 class Linkedlist:
     def __init__(self, head=None):
+        """
+        Initialize a Linkedlist object.
+
+        Args:
+            head: The head node of the linked list (default is None).
+        """
         self.head = head
 
     def traverse(self):
+        """
+        Traverse the linked list and print the values of all nodes.
+        """
         current_node = self.head
         while current_node:
             print(current_node.value)
             current_node = current_node.next_node
 
     def insert(self, value):
+        """
+        Insert a new node with the given value at the beginning of the linked list.
+
+        Args:
+            value: The value of the node to be inserted.
+        """
         new_node = Node(value)
         new_node.next_node = self.head
         self.head = new_node
 
     def includes(self, value):
+        """
+        Check if a node with the given value exists in the linked list.
+
+        Args:
+            value: The value to search for.
+
+        Returns:
+            True if the value is found, False otherwise.
+        """
         current_node = self.head
         while current_node:
             if current_node.value == value:
@@ -29,6 +60,12 @@ class Linkedlist:
         return False
 
     def to_string(self):
+        """
+        Convert the linked list to a string representation.
+
+        Returns:
+            String representation of the linked list.
+        """
         values = "head -> "
         current_node = self.head
         while current_node:
@@ -38,17 +75,30 @@ class Linkedlist:
         return values
 
     def append(self, value):
-        newNode = Node(value)
+        """
+        Append a new node with the given value to the end of the linked list.
+
+        Args:
+            value: The value of the node to be appended.
+        """
+        new_node = Node(value)
 
         if self.head is None:
-            self.head = newNode
+            self.head = new_node
         else:
             current_node = self.head
             while current_node.next_node:
                 current_node = current_node.next_node
-            current_node.next_node = newNode
+            current_node.next_node = new_node
 
     def addBefore(self, value, target_node):
+        """
+        Insert a new node with the given value before the first occurrence of the target node.
+
+        Args:
+            value: The value of the node to be inserted.
+            target_node: The value of the target node.
+        """
         newNode = Node(value)
 
         if self.head is None:
@@ -73,6 +123,13 @@ class Linkedlist:
             current_node.next_node = newNode
 
     def addAfter(self, value, target_node):
+        """
+        Insert a new node with the given value after the first occurrence of the target node.
+
+        Args:
+            value: The value of the node to be inserted.
+            target_node: The value of the target node.
+        """
         newNode = Node(value)
 
         if self.head is None:
@@ -92,6 +149,12 @@ class Linkedlist:
             current_node.next_node = newNode
 
     def delete(self, value):
+        """
+        Delete the first occurrence of a node with the given value from the linked list.
+
+        Args:
+            value: The value of the node to be deleted.
+        """
         if self.head is None:
             print("Linked list is empty!")
             return
@@ -115,6 +178,12 @@ class Linkedlist:
         prev_node.next_node = current_node.next_node
 
     def linkLength(self):
+        """
+        Calculate the length of the linked list.
+
+        Returns:
+            The length of the linked list.
+        """
         length = 0
         current_node = self.head
         while current_node:
@@ -123,6 +192,15 @@ class Linkedlist:
         return length
     
     def kthFromEnd(self, k):
+        """
+        Find the value of the k-th node from the end of the linked list.
+
+        Args:
+            k: The index of the node from the end (starting from 0).
+
+        Returns:
+            The value of the k-th node from the end.
+        """
         length = self.linkLength()
 
         if self.head is None:
@@ -130,10 +208,10 @@ class Linkedlist:
             return
 
         if k < 0:
-            raise IndexError ("Enter positive index only")
+            raise IndexError("Enter positive index only")
 
-        if k > length:
-            raise IndexError ("index out of the range")
+        if k >= length:
+            raise IndexError("Index out of range")
 
         current_node = self.head
         for _ in range(length - k - 1):
@@ -141,6 +219,15 @@ class Linkedlist:
         return current_node.value
     
     def kthFormEndIndex(self, k):
+        """
+        Find the index of the first occurrence of a node with the given value in the linked list.
+
+        Args:
+            k: The value to search for.
+
+        Returns:
+            The index of the first occurrence of the node, or -1 if not found.
+        """
         current_node = self.head
         index = 0
         while current_node:
@@ -152,55 +239,37 @@ class Linkedlist:
     
     @staticmethod
     def zip_LL(list1, list2):
-        if not list1:
-            return list2
-        if not list2:
-            return list1
-        
-        length1 = 0
-        length2 = 0
-        
-        current_node = list1
-        while current_node:
-            length1 += 1
-            current_node = current_node.next_node
+        """
+        Merge two linked lists by alternating their nodes.
 
-        current_node = list2
-        while current_node:
-            length2 += 1
-            current_node = current_node.next_node
+        Args:
+            list1: The head node of the first linked list.
+            list2: The head node of the second linked list.
 
-        if length1 > length2:
-            longer_list = list1
-            shorter_list = list2
-        else:
-            longer_list = list2
-            shorter_list = list1
+        Returns:
+            A new instance of the  linked list representing the merged result.
+        """
+        if not list1 and not list2:
+            raise Exception("You cannot merge empty lists")
         
         head = list1
-        while longer_list and shorter_list:
-            next1 = list1.next_node
-            next2 = list2.next_node
+        current1 = list1
+        current2 = list2
 
-            list2.next_node = next1
-            list1.next_node = list2
+        while current1.next_node and current2:
+            next1 = current1.next_node
+            next2 = current2.next_node
 
-            list1 = next1
-            list2 = next2
+            current1.next_node = current2
+            current2.next_node = next1
 
-        if list2:
-            list1.next_node = list2
+            current1 = next1
+            current2 = next2
+
+        if current2:
+            current1.next_node = current2
 
         return Linkedlist(head)
-
-
-
-
-
-
-
-        
-        
 
 
 
@@ -239,16 +308,13 @@ if __name__ == "__main__":
     app1.append(3)
     app1.append(2)
 
- 
-
-    
     n2 = Node(5)
     app2 = Linkedlist(n2)
     app2.append(9)
-    # app2.append(7)
-    # app2.append(8)
-    # app2.append(9)
-    # app2.append(10)
+    app2.append(7)
+    app2.append(8)
+    app2.append(9)
+    app2.append(10)
 
     zipll = Linkedlist.zip_LL(app1.head, app2.head)
 
