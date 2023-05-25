@@ -36,3 +36,4 @@
 
 ## Resources
 [YouTube Video](https://www.youtube.com/watch?v=P3YID7liBug&t=314s).
+[YouTube Video](https://www.youtube.com/watch?v=4Q36e9EOxLU).
