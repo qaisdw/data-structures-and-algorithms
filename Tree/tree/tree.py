@@ -174,7 +174,15 @@ class Tree:
     return list_
   
 
- 
+  def maximum_value(self):
+    '''
+    Findind  maximum value stored in  tree
+    '''
+    if self.root == None:
+       return 'the tree is empty'
+    element = self.pre_order()
+    return max(element)
+    
     
 
 
